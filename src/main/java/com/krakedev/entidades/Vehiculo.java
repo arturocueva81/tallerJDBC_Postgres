@@ -9,13 +9,16 @@ public class Vehiculo {
     private double  precio;
     private String  color;
     private boolean disponible;
+    
+    //parte 12 modificacion de la tabla, nuevo atributo kilometraje
+    private int kilometraje;
 
-    //  Parte5 Constructor vacío
+	//  Parte5 Constructor vacío
     public Vehiculo() {}
 
     // Parte5 Constructor con parámetros
     public Vehiculo(String placa, String marca, String modelo,
-                    int anio, double precio, String color, boolean disponible) {
+                    int anio, double precio, String color, boolean disponible, int kilometraje) {
         this.placa      = placa;
         this.marca      = marca;
         this.modelo     = modelo;
@@ -23,6 +26,7 @@ public class Vehiculo {
         this.precio     = precio;
         this.color      = color;
         this.disponible = disponible;
+        this.kilometraje = kilometraje;
     }
     
     // Parte 5 Getters y Setters
@@ -82,6 +86,14 @@ public class Vehiculo {
 	public void setDisponible(boolean disponible) {
 		this.disponible = disponible;
 	}
+	
+    public int getKilometraje() {
+		return kilometraje;
+	}
+
+	public void setKilometraje(int kilometraje) {
+		this.kilometraje = kilometraje;
+	}
 
 	
     // Parte 5 metodo toString
@@ -94,6 +106,7 @@ public class Vehiculo {
 				", precio=" + precio + 
 				", color=" + color + 
 				", disponible=" + disponible + 
+				", kilometraje =" + kilometraje + 
 				"]";
 	}
 

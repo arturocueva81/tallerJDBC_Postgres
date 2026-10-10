@@ -19,12 +19,16 @@ public class UpdateVehiculo {
         try {
             con = Conexion.getConexion();
 
-            String sql = "UPDATE vehiculos SET precio = ?, color = ?, disponible = ? WHERE placa = ?";
+            String sql = "UPDATE vehiculos SET precio = ?, color = ?, disponible = ?, kilometraje = ? WHERE placa = ?";
             ps = con.prepareStatement(sql);
+           
             ps.setDouble (1, 22000.00);
             ps.setString (2, "Azul");
             ps.setBoolean(3, false);
-            ps.setString (4, "ABC-1234");
+     
+            ps.setInt(4, 20000); //parte12 actualiza el kilometraje
+            
+            ps.setString (5, "ABC-1234");
 
             int filas = ps.executeUpdate();
             log.info("Vehiculo actualizado. Filas afectadas: "+ filas);

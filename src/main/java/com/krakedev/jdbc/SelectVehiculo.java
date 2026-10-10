@@ -23,7 +23,7 @@ public class SelectVehiculo {
         try {
             con = Conexion.getConexion();
 
-            String sql = "SELECT placa, marca, modelo, anio, precio, color, disponible FROM vehiculos";
+            String sql = "SELECT placa, marca, modelo, anio, precio, color, disponible, kilometraje FROM vehiculos";
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
 
@@ -36,7 +36,8 @@ public class SelectVehiculo {
                     rs.getInt    ("anio"),
                     rs.getDouble ("precio"),
                     rs.getString ("color"),
-                    rs.getBoolean("disponible")
+                    rs.getBoolean("disponible"),
+                    rs.getInt    ("kilometraje") //parte12 Select con el campo nuevo:kilometraje
                 );
                 log.info(v.toString());
             }

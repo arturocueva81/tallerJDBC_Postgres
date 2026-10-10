@@ -14,15 +14,15 @@ public class InsertVehiculo {
 	private static final Logger log = LogManager.getLogger(InsertVehiculo.class);
 
 	public static void main(String[] args) {
-		Vehiculo v = new Vehiculo("ABC-1234", "Toyota", "Corolla", 2022, 25000.00, "Rojo", true);
+		Vehiculo v = new Vehiculo("ABC-1234", "Toyota", "Corolla", 2022, 25000.00, "Rojo", true, 1500);
 		Connection con = null;
         PreparedStatement ps = null;
         
         try {
             con = Conexion.getConexion();
 
-            String sql = "INSERT INTO vehiculos (placa, marca, modelo, anio, precio, color, disponible) "
-                       + "VALUES (?, ?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO vehiculos (placa, marca, modelo, anio, precio, color, disponible, kilometraje) "
+                       + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
             ps = con.prepareStatement(sql);
             ps.setString(1, v.getPlaca());
@@ -32,6 +32,9 @@ public class InsertVehiculo {
             ps.setDouble(5, v.getPrecio());
             ps.setString(6, v.getColor());
             ps.setBoolean(7, v.isDisponible());
+            
+            //parte 12, agrega atributo kilometraje
+            ps.setInt   (8, v.getKilometraje());
 
             int filas = ps.executeUpdate();
             log.info("Filas afectadas: "+ filas);
