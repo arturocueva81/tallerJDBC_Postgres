@@ -7,7 +7,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class Conexion {
-	
+	//Parte6 Clase unitaria de conexion
 	private static final Logger log = LogManager.getLogger(Conexion.class);
 	private static final String URL ="jdbc:postgresql://localhost:5432/postgres";
 	private static final String USUARIO ="postgres";
