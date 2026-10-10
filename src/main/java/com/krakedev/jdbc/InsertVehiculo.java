@@ -34,14 +34,13 @@ public class InsertVehiculo {
             ps.setBoolean(7, v.isDisponible());
 
             int filas = ps.executeUpdate();
-            log.info("Vehiculo insertado. Filas afectadas: ", filas);
+            log.info("Filas afectadas: "+ filas);
 
         } catch (SQLException e) {
             log.error("Error al insertar vehiculo: ", e.getMessage());
         } finally {
             try {
-                if (ps  != null) ps.close();
-                if (con != null) con.close();
+                con.close();
                 log.info("Conexión cerrada correctamente.");
             } catch (SQLException e) {
                 log.error("Error al cerrar conexión: ", e.getMessage());

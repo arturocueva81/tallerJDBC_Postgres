@@ -45,9 +45,7 @@ public class SelectVehiculo {
             log.error("Error al listar vehiculos: ", e.getMessage());
         } finally {
             try {
-                if (rs  != null) rs.close();
-                if (ps  != null) ps.close();
-                if (con != null) con.close();
+                con.close();
                 log.info("Conexión cerrada correctamente.");
             } catch (SQLException e) {
                 log.error("Error al cerrar conexión", e.getMessage());

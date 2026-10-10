@@ -27,14 +27,13 @@ public class UpdateVehiculo {
             ps.setString (4, "ABC-1234");
 
             int filas = ps.executeUpdate();
-            log.info("Vehiculo actualizado. Filas afectadas: ", filas);
+            log.info("Vehiculo actualizado. Filas afectadas: "+ filas);
 
         } catch (SQLException e) {
             log.error("Error al actualizar vehiculo: ", e.getMessage());
         } finally {
             try {
-                if (ps  != null) ps.close();
-                if (con != null) con.close();
+                con.close();
                 log.info("Conexión cerrada correctamente.");
             } catch (SQLException e) {
                 log.error("Error al cerrar conexión: ", e.getMessage());
